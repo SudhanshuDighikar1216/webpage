@@ -66,22 +66,3 @@ resource "azurerm_linux_virtual_machine" "example" {
   admin_password                   = "P@ssw0rd1234!"
   network_interface_ids            = [azurerm_network_interface.example.id]
   
-  os_disk {
-    name              = "example-os-disk"
-    caching           = "ReadWrite"
-    disk_size_gb      = 30
-    # Removed invalid 'create_option' attribute
-    managed           = true  # Optional, as managed disks are the default
-  }
-
-  source_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "20.04-LTS"
-    version   = "latest"
-  }
-
-  tags = {
-    environment = "dev"
-  }
-}
