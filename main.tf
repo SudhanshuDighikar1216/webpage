@@ -24,7 +24,7 @@ resource "azurerm_role_assignment" "example" {
   role_definition_name = "AcrPull"
   scope                = "<YOUR_ACR_ID>"
 }
-   {
+  identity {
     type                = "UserAssigned"
     user_assigned_identity_ids = [azurerm_user_assigned_identity.example.id]
   }
